@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<div class="wrapper" 
+  <div id= "date"></div> 
+  
+</div> 
+<style>
+html,
+body {
+  height: 600px;
+  width: 1500px;
+  padding: 10px;
+  display: flex;
+  background: black;
+}
+
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 80%;
+  right: 0%;
+  width: 1500px
+  margins: 10px;    
+  color: white;
+  text-align: right;
+  font-size: 1.5em;
+  padding: 10px;
+  display: flex;
+}
+.span {
+  margins: 10px;
+
+}
+
+
+</style>
+
+<script>
+
+(function() {
+  'use strict';
+
+  function getDate() {
+    var date = new Date();
+    var weekday = date.getDay();
+    var month = date.getMonth();
+    var day = date.getDate();
+    var year = date.getFullYear();
+    var hour = date.getHours();
+
+
+    var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    var weekdayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    
+    var monthColors = ["#1E90FF", "#FF69B4", "#00FFFF", "#7CFC00", "#00CED1", "#FF1493", "#00008B", "#FF7F50", "#C71585", "#FF4500", "#FFD700", "#800000"]
+
+ 
+
+    var showDate = weekdayNames[weekday] + ", " + monthNames[month] + " " + day + ", " + year;
+    
+    var color = monthColors[month];
+
+    document.getElementById('date').innerHTML = showDate;
+
+    
+    document.bgColor = color;
+    
+
+    requestAnimationFrame(getDate);
+  }
+
+  getDate();
+
+}());
+
+</script>
+</body>
+</html>
